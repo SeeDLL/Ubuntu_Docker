@@ -3,17 +3,7 @@ name: Ubuntu_Python_3.10 docker image
 # Controls when the action will run.
 on:
   schedule:
-    - cron: "0 18 * * *"
-
-# Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'
+    - cron: "0 19 * * 6"
 
 jobs:
   buildx:
@@ -51,5 +41,4 @@ jobs:
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ${{ secrets.PYTHON }}:${{ steps.date.outputs.today }}
             ${{ secrets.PYTHON }}:latest
