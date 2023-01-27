@@ -37,7 +37,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./Dockerfile
+          file: ./Python3/Dockerfile_3.10
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
