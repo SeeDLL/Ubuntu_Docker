@@ -15,6 +15,16 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
 		libbluetooth-dev \
+		libncursesw5-dev \
+		libgdbm-dev \
+		libc6-dev \
+		zlib1g-dev \
+		openssl \
+		libffi-dev \
+		libxpm-dev \
+		libxext-dev \
+		libbz2-dev \
+		libncurses5-dev \
 		tk-dev \
 		uuid-dev \
 		wget \
@@ -93,7 +103,7 @@ RUN set -eux; \
 	done
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 22.3.1
+ENV PYTHON_PIP_VERSION 23.0
 # https://github.com/docker-library/python/issues/365
 ENV PYTHON_SETUPTOOLS_VERSION 65.5.1
 # https://github.com/pypa/get-pip
