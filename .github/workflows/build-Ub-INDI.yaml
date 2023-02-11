@@ -3,7 +3,7 @@ name: Ubuntu_Python_Indi-Server docker image
 # Controls when the action will run.
 on:
   schedule:
-    - cron: "0 19 * * 6"
+    - cron: "0 20 * * 6"
   push:
     branches: [ main ]
   pull_request:
