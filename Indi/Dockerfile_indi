@@ -14,7 +14,8 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \
 		indi-bin \
 		gsc \
 		kstars-bleeding \ 
-		libindi-dev swig \
+		libindi-dev \
+		swig \
 		libcfitsio-dev \
 		libnova-dev \
 		; \
