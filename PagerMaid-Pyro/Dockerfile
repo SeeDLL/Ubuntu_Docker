@@ -1,7 +1,7 @@
 FROM seedll/ubuntu_python
 
 # runtime dependencies
-COPY Enterpoint.sh /app/Enterpoint.sh
+COPY PagerMaid-Pyro/Enterpoint.sh /app/Enterpoint.sh
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \
     set -eux; \
