@@ -18,6 +18,6 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \
 	rm -rf /var/lib/apt/lists/* ; \
 	chmod +x /app/Enterpoint.sh
 
-EXPORT 3333
+EXPOSE 3333
 
 CMD ["/usr/bin/bash", "/app/Enterpoint.sh"]
