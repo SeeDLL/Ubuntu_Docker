@@ -9,8 +9,6 @@ ENV LANG C.UTF-8
 
 # runtime dependencies
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \
-    sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list; \
-    sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list; \
     set -eux; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
