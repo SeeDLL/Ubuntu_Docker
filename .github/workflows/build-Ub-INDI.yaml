@@ -4,11 +4,7 @@ name: Ubuntu_Python_Indi-Server docker image
 on:
   schedule:
     - cron: "0 20 * * 6"
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+    
 jobs:
   buildx:
     runs-on: ubuntu-latest
