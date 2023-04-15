@@ -14,4 +14,4 @@ RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \
 
 WORKDIR /app/Auto-GPT
 
-CMD ["python", "/app/Auto-GPT/scripts/main.py", "--gpt3only"]
+CMD ["python", "-m", "autogpt"]
