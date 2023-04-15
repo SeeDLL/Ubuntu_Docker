@@ -45,4 +45,4 @@ jobs:
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ${{ secrets.REGISTRY }}/${{ secrets.INDI }}:latest
+            ${{ secrets.REGISTRY }}/${{ secrets.AUTO_GPT }}:latest

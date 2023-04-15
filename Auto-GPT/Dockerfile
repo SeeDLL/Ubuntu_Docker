@@ -1,7 +1,7 @@
 FROM seedll/ubuntu_python
 
 # runtime dependencies
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \
+RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \
     cd / ; \
     mkdir /app ;\
     mkdir /app_conf ; \
