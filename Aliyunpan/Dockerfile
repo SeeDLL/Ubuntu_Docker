@@ -12,7 +12,6 @@ COPY --chmod=755 root /
 COPY --chmod=755 startapp.sh /startapp.sh
 
 RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ; \
-    sed -i "s/archive.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list ; \
     apt update ; \
     apt install -y --no-install-recommends -y wget libnss3 libxss1 desktop-file-utils libgtk-3-0 libnotify4 libxtst6 xdg-utils desktop-file-utils libasound2 libgbm1 libsecret-1-0 ; \
     cd /root ; \
