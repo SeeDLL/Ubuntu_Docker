@@ -1,3 +1,3 @@
 #!/bin/sh
 
-/usr/bin/xbyyunpan
+/opt/小白羊云盘/xbyyunpan
