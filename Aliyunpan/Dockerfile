@@ -9,7 +9,6 @@ ENV HOME=/config
 ENV LC_ALL=C
 
 COPY --chmod=755 root /
-COPY --chmod=755 startapp.sh /startapp.sh
 
 RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ; \
     sed -i "s/archive.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list ; \
