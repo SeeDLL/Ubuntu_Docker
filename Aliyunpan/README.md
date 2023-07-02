@@ -6,7 +6,11 @@
 
 ### 感谢以下项目:
 
-[https://github.com/jlesage/docker-baseimage-gui](https://github.com/jlesage/docker-baseimage-gui "https://github.com/jlesage/docker-baseimage-gui")                                       
+一个最小的 docker 基础镜像，可以轻松创建 X 图形应用程序容器:
+[https://github.com/jlesage/docker-baseimage-gui ](https://github.com/jlesage/docker-baseimage-gui "https://github.com/jlesage/docker-baseimage-gui")
+
+小白羊网盘 - Powered by 阿里云盘:
+[https://github.com/gaozhangmin/aliyunpan ](https://github.com/gaozhangmin/aliyunpan "https://github.com/gaozhangmin/aliyunpan")                                       
 
 ### 版本：
 
