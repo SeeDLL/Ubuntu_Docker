@@ -2,14 +2,14 @@ FROM jlesage/baseimage-gui:ubuntu-22.04-v4
 
 ARG ALIYUNPAN_VER=3.11.15
 
-ENV APP_NAME="aliyunpan"
-ENV APP_VERSION="3.11.15"
-ENV DISPLAY_WIDTH="1920"
-ENV DISPLAY_HEIGHT="1080"
-ENV NOVNC_LANGUAGE="zh_Hans"
-ENV TZ=Asia/Shanghai
-ENV HOME=/config
-ENV LC_ALL=C
+env APP_NAME="aliyunpan" \
+    APP_VERSION="3.11.15" \
+    DISPLAY_WIDTH="1920" \
+    DISPLAY_HEIGHT="1080" \
+    NOVNC_LANGUAGE="zh_Hans" \
+    TZ=Asia/Shanghai \
+    HOME=/config \
+    LC_ALL=C
 
 COPY --chmod=755 root /
 
