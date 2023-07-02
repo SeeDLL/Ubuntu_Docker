@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [ main ]
 
-environment:
+env:
   TAG_FILE: ALIYUNPAN_VER.txt
     
 jobs:
