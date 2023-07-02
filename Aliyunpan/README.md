@@ -20,6 +20,8 @@
 
 #### 注意：
 
+   * 创建 Docker 容器时，必须要有 /dev/shm 的相关设置，具体请看变量参数。
+
    * 初次使用，请完成登陆后，到设置页面设置好相关参数，包括下载位置也需手动配置(右上角-设置)。
 
 ### docker命令行设置：
@@ -38,6 +40,7 @@
            -p 5900:5900 \
            -v /配置文件位置:/config \
            -v /下载位置:/config/download \
+           -v /dev/shm/xbyyunpan:/dev/shm \
            --restart unless-stopped \
            seedll/aliyunpan:latest
 
@@ -57,7 +60,7 @@
 
        docker image rm seedll/aliyunpan:latest
 
-### 变量:
+### 变量参数设置:
 
 |参数|说明|
 |:-|:-|
@@ -67,35 +70,12 @@
 | `-v /配置文件位置:/config` |aliyunpan 配置文件位置|
 | `-v /下载位置:/config/download` |aliyunpan 下载路径(需手动设置)|
 | `-e VNC_PASSWORD=VNC密码` |VNC密码|
-| `-e USER_ID=1000` |uid设置,默认为1000|
-| `-e GROUP_ID=1000` |gid设置,默认为1000|
+| `-e USER_ID=1000` |用户 uid 设置,默认为1000|
+| `-e GROUP_ID=1000` |用户组 gid 设置,默认为1000|
 | `-e NOVNC_LANGUAGE="zh_Hans"` |(zh_Hans\|en)设定novnc语言,默认为中文|
+| `-e DISPLAY_WIDTH=1920` | VNC桌面的宽度(默认1920) |
+| `-e DISPLAY_HEIGHT=1080` | VNC桌面的高度(默认1080) |
+| `-v /dev/shm/{自定义的文件名}:/dev/shm` | 容器中小白羊网盘所必须要用的程序间内存共享通信 |
 
 
 更多参数设置详见:[https://registry.hub.docker.com/r/jlesage/baseimage-gui](https://registry.hub.docker.com/r/jlesage/baseimage-gui "https://registry.hub.docker.com/r/jlesage/baseimage-gui")                                     
-
-
-### 群晖docker设置：
-
-1. 卷
-
-|参数|说明|
-|:-|:-|
-| `本地文件夹1:/config/baidunetdiskdownload` |baidunetdisk下载路径(3.3.2需手动设置)|
-| `本地文件夹2:/config` |baidunetdisk配置文件位置|
-
-2. 端口
-
-|参数|说明|
-|:-|:-|
-| `本地端口1:5800`  |Web界面访问端口,[ip:本地端口1](ip:本地端口1)|
-| `本地端口2:5900`  |VNC协议访问端口.如果未使用VNC客户端,则为可选,[ip:本地端口2](ip:本地端口2)|
-
-3. 环境变量
-
-|参数|说明|
-|:-|:-|
-| `VNC_PASSWORD=VNC密码` |VNC密码|
-| `USER_ID=1000` |uid设置,默认为1000|
-| `GROUP_ID=1000` |gid设置,默认为1000|
-| `NOVNC_LANGUAGE="zh_Hans"` |(zh_Hans\|en)设定novnc语言,默认为中文|
