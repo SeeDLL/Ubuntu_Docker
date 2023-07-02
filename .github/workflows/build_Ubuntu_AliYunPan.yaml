@@ -1,13 +1,9 @@
 # This is a basic workflow to help you get started with Actions
-name: Ubuntu_Aliyunpan_Desktop docker image
+name: Ubuntu_Aliyunpan_Desktop image
 # Controls when the action will run.
 on:
   schedule:
     - cron: "0 20 1/10 * *"
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
     
 jobs:
   buildx:
