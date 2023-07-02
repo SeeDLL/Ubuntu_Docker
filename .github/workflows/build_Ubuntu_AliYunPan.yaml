@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 env:
-  TAG_FILE: ALIYUNPAN_VER.txt
+  TAG_FILE: Aliyunpan/ALIYUNPAN_VER.txt
     
 jobs:
   buildx:
