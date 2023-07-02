@@ -50,4 +50,5 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ${{ secrets.REGISTRY }}/${{ secrets.ALIYUNPAN }}:latest
-            ${{ secrets.REGISTRY }}/${{ secrets.ALIYUNPAN }}:$ALIYUNPAN_VER
+            ${{ secrets.REGISTRY }}/${{ secrets.ALIYUNPAN }}:${{ secrets.ALIYUNPAN_VER }}
+            
