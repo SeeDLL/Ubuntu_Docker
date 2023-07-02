@@ -2,7 +2,7 @@ FROM jlesage/baseimage-gui:ubuntu-22.04-v4
 
 ARG ALIYUNPAN_VER=3.11.15
 
-env APP_NAME="aliyunpan" \
+ENV APP_NAME="aliyunpan" \
     APP_VERSION="3.11.15" \
     DISPLAY_WIDTH="1920" \
     DISPLAY_HEIGHT="1080" \
