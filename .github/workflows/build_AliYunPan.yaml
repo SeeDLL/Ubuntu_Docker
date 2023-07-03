@@ -4,10 +4,6 @@ name: Ubuntu_Aliyunpan_Desktop image
 on:
   schedule:
     - cron: "0 20 1/10 * *"
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
     
 jobs:
   buildx:
