@@ -3,11 +3,7 @@ name: Debian_Hexo image
 # Controls when the action will run.
 on:
   schedule:
-    - cron: "0 20 1/15 * *"
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    - cron: "0 20 15 * *"
     
 jobs:
   buildx:
