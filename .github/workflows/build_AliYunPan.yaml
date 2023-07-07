@@ -39,11 +39,6 @@ jobs:
         run: |
           echo "ALIYUNPAN_VER=$(echo `grep -n "ALIYUNPAN_VER=" Aliyunpan/Dockerfile`|awk -F: '{print $2}'|cut -d "=" -f 2)" >> $GITHUB_ENV
 
-      - name: Check Dockerfile Changes
-        id: dockerfile_changes
-        run: |
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep "Aliyunpan/Dockerfile"
-
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
@@ -54,4 +49,3 @@ jobs:
           tags: |
             ${{ secrets.REGISTRY }}/${{ secrets.ALIYUNPAN }}:latest
             ${{ secrets.REGISTRY }}/${{ secrets.ALIYUNPAN }}:${{ env.ALIYUNPAN_VER }}
-        if: steps.dockerfile_changes.outputs.return-code == '0'
