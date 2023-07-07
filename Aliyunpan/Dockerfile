@@ -1,9 +1,9 @@
 FROM jlesage/baseimage-gui:ubuntu-22.04-v4
 
-ARG ALIYUNPAN_VER=3.11.15
+ARG ALIYUNPAN_VER=3.11.16
 
 ENV APP_NAME="aliyunpan" \
-    APP_VERSION="3.11.15" \
+    APP_VERSION=${ALIYUNPAN_VER} \
     DISPLAY_WIDTH="1920" \
     DISPLAY_HEIGHT="1080" \
     NOVNC_LANGUAGE="zh_Hans" \
