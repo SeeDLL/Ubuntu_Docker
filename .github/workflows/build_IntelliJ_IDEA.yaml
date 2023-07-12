@@ -1,0 +1,73 @@
+# This is a basic workflow to help you get started with Actions
+name: Ubuntu_IntelliJ_IDEA image
+# Controls when the action will run.
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  buildx:
+    runs-on: ubuntu-latest
+    environment: env
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=today::$(date +'%Y-%m-%d_%H-%M')"
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Build and Push
+        id: build
+        run: |
+          DirPath=./jetbrains/IntelliJ_IDEA
+          VER_LIST=$(cat ${DirPath}/VersionList.txt)
+
+          # Loop through each version
+          while read -r Version; do
+            VERSIONS=$(echo "$Version" | awk -F '|' '{print $1}')
+            LATEST=$(echo "$Version" | awk -F '|' '{print $2}')
+
+            echo "Building version: $VERSIONS"
+            ARG_VER="--build-arg IntelliJ_IDEA_VER=$VERSIONS"
+
+            echo "Building tag: ${tags[@]}"
+
+            if [[ -n "$LATEST" ]]; then
+              docker buildx build \
+                --pull \
+                --push \
+                -f ${DirPath}/BaseDockerfile \
+                --tag "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)" \
+                -t "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:latest)" \
+                $ARG_VER ${DirPath}/Context
+            else
+              docker buildx build \
+                --pull \
+                --push \
+                -f ${DirPath}/BaseDockerfile \
+                --tag "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)" \
+                $ARG_VER ${DirPath}/Context
+            fi
+
+            echo "Build Over, Version: $VERSIONS,  tag: ${tags[@]}"
+          done <<< "$VER_LIST"
+          echo "Build All Over"
