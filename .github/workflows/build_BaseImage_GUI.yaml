@@ -1,11 +1,11 @@
 # This is a basic workflow to help you get started with Actions
-name: Ubuntu_Aliyunpan_Desktop image
+name: Ubuntu_Base GUI Image
 # Controls when the action will run.
 on:
-#  push:
-#    branches: [ main ]
-#  pull_request:
-#    branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   buildx:
@@ -35,17 +35,12 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: 'Set Version'
-        run: |
-          echo "ALIYUNPAN_VER=$(echo `grep -n "ALIYUNPAN_VER=" Aliyunpan/Dockerfile`|awk -F: '{print $2}'|cut -d "=" -f 2)" >> $GITHUB_ENV
-
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./Aliyunpan
-          file: ./Aliyunpan/Dockerfile
+          context: ./BaseImage_GUI
+          file: ./BaseImage_GUI/Dockerfile
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ${{ secrets.REGISTRY }}/${{ secrets.ALIYUNPAN }}:latest
-            ${{ secrets.REGISTRY }}/${{ secrets.ALIYUNPAN }}:${{ env.ALIYUNPAN_VER }}
+            ${{ secrets.REGISTRY }}/${{ secrets.BASE_IMAGE_GUI }}:latest
