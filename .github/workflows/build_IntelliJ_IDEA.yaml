@@ -62,6 +62,7 @@ jobs:
                 $ARG_VER ${DirPath}/Context
             else
             echo "build TAG: $VERSIONS"
+            echo "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)"
               docker buildx build \
                 --pull \
                 --push \
