@@ -52,19 +52,21 @@ jobs:
             echo "Building tag: ${tags[@]}"
 
             if [[ -n "$LATEST" ]]; then
+              echo "build LATES: $VERSIONS"
               docker buildx build \
                 --pull \
                 --push \
                 -f ${DirPath}/BaseDockerfile \
-                --tag "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)" \
+                -t "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)" \
                 -t "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:latest)" \
                 $ARG_VER ${DirPath}/Context
             else
+            echo "build TAG: $VERSIONS"
               docker buildx build \
                 --pull \
                 --push \
                 -f ${DirPath}/BaseDockerfile \
-                --tag "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)" \
+                -t "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)" \
                 $ARG_VER ${DirPath}/Context
             fi
 
