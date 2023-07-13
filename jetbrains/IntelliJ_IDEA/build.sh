@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ls -al "./"
 DirPath="./"
 SOFT_LIST=$(cat "VersionList.txt")
 
