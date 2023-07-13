@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: Ubuntu_IntelliJ_IDEA image
+name: Ubuntu_CLion image
 # Controls when the action will run.
 on:
   push:
