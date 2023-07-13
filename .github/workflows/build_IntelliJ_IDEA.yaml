@@ -3,9 +3,9 @@ name: Ubuntu_IntelliJ_IDEA image
 # Controls when the action will run.
 on:
   push:
-    branches: [ main ]
+    branches: [ main， dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
   buildx:
