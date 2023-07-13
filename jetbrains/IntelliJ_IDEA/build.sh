@@ -66,8 +66,14 @@ while IFS="|" read -r IsBuild AppName DockerName AppDirName AppVer AppLatest App
       continue
     fi
 
-    if [[ -z "$AppVer" || ! "$AppVer" =~ ^[[:alnum:]]+$ ]]; then
-      echo "Skipping current iteration: AppVer is empty or not a string"
+    if [[ -z "$AppVer" ]]; then
+      echo "Skipping current iteration: AppVer is empty"
+      continue
+    fi
+
+
+    if [[ ! "$AppVer" =~ ^[[:alnum:]]+$ ]]; then
+      echo "Skipping current iteration: AppVer is not a string"
       continue
     fi
 
