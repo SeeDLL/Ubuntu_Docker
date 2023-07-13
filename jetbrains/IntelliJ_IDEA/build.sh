@@ -2,6 +2,12 @@
 DirPath="./jetbrains/IntelliJ_IDEA/"
 SOFT_LIST=$(cat "${DirPath}VersionList.txt")
 
+IsPush=true
+
+if [[ "${GITHUB_REF##*/}" == "dev" ]]; then
+  IsPush=false
+fi
+
 # true/false|ApplicationName|dockerName|AppDirName|version|latest|runBinPath|DownURL
 
 # Function to handle error and log messages
