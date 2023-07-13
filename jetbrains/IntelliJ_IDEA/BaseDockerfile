@@ -1,4 +1,4 @@
-FROM seedll/baseimage-gui:latest
+FROM seedll/baseimage_gui:latest
 
 ARG IntelliJ_IDEA_VER
 
