@@ -39,6 +39,6 @@ jobs:
         id: build
         run: |
           FilePath=./jetbrains/IntelliJ_IDEA/build.sh
-          chmod +x ${FilePath}
           ls -al
+          chmod +x ${FilePath}
           $FilePath
