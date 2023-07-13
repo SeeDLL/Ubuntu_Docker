@@ -38,4 +38,7 @@ jobs:
       - name: Build and Push
         id: build
         run: |
-          ./jetbrains/IntelliJ_IDEA/build.sh
+          FilePath=./jetbrains/IntelliJ_IDEA/build.sh
+          chmod +x ${FilePath}
+          ls -al
+          $FilePath
