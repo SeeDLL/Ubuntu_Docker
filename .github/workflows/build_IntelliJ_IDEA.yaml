@@ -57,8 +57,8 @@ jobs:
                 --pull \
                 --push \
                 -f ${DirPath}/BaseDockerfile \
-                --tag "(seedll/intellij:$VERSIONS)" \
-                -t "(seedll/intellij:latest)" \
+                --tag "seedll/intellij:$VERSIONS" \
+                -t "seedll/intellij:latest" \
                 $ARG_VER ${DirPath}/Context
             else
             echo "build TAG: $VERSIONS"
@@ -67,7 +67,7 @@ jobs:
                 --pull \
                 --push \
                 -f ${DirPath}/BaseDockerfile \
-                -t "(seedll/intellij:$VERSIONS)" \
+                -t "seedll/intellij:$VERSIONS" \
                 $ARG_VER ${DirPath}/Context
             fi
 
