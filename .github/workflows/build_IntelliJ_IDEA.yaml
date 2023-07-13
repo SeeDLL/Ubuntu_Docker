@@ -57,17 +57,17 @@ jobs:
                 --pull \
                 --push \
                 -f ${DirPath}/BaseDockerfile \
-                -t "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)" \
-                -t "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:latest)" \
+                --tag "(seedll/intellij:$VERSIONS)" \
+                -t "(seedll/intellij:latest)" \
                 $ARG_VER ${DirPath}/Context
             else
             echo "build TAG: $VERSIONS"
-            echo "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)"
+            echo "(seedll/intellij:$VERSIONS)"
               docker buildx build \
                 --pull \
                 --push \
                 -f ${DirPath}/BaseDockerfile \
-                -t "(${{ secrets.REGISTRY }}/${{ secrets.INTELLIJ_IDEA }}:$VERSIONS)" \
+                -t "(seedll/intellij:$VERSIONS)" \
                 $ARG_VER ${DirPath}/Context
             fi
 
