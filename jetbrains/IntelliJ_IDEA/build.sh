@@ -1,6 +1,5 @@
 #!/bin/bash
-ls -al "./"
-DirPath="./"
+DirPath="./jetbrains/IntelliJ_IDEA/"
 SOFT_LIST=$(cat "VersionList.txt")
 
 # true/false|ApplicationName|dockerName|AppDirName|version|latest|runBinPath|DownURL
