@@ -1,17 +1,18 @@
 FROM seedll/baseimage_gui:latest
 
-ARG IntelliJ_IDEA_VER
-
-ENV APP_NAME="IntelliJ_IDEA" \
-    APP_VERSION=${IntelliJ_IDEA_VER} \
+ENV APP_NAME=AppName \
+    APP_VERSION=AppVer \
     DISPLAY_WIDTH="1920" \
     DISPLAY_HEIGHT="1080"
 
-COPY root /
+COPY --chmod=755 root /
 
 RUN chmod 755 /startapp.sh && \
-    wget https://download.jetbrains.com/idea/ideaIU-${IntelliJ_IDEA_VER}.tar.gz -O /tmp/idea.tar.gz && \
-    mkdir -p /opt/idea && \
-    tar --extract --file /tmp/idea.tar.gz --directory /opt/idea --strip-components 1 --no-same-owner -v && \
-    install_app_icon.sh https://raw.githubusercontent.com/SeeDLL/Ubuntu_Docker/main/jetbrains/IntelliJ_IDEA/icon/IntelliJ.png && \
+    mkdir -p "/opt/AppDirName" && \
+    wget AppDownUrl -O /tmp/archfile.tar.gz && \
+    tar --extract --file /tmp/archfile.tar.gz --directory "/opt/AppDirName" --strip-components 1 --no-same-owner -v && \
+    install_app_icon.sh https://raw.githubusercontent.com/SeeDLL/Ubuntu_Docker/main/jetbrains/AppName/icon/AppName.png ; \
+    sed -i "s/APPName/$APP_NAME/g;" /startapp.sh && \
+    echo "sed 1" && \
+    sed -i "s|APPName|$APP_NAME|g; s|AppRunPath|AppDirRunPath|g" /startapp.sh && \
     rm -rf /var/lib/apt/lists/*

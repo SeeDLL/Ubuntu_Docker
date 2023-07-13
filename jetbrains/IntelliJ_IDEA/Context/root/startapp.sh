@@ -2,8 +2,8 @@
 
 export HOME=/config
 
-echo "Start Run IntelliJ_IDEA"
+echo "Start Run APPName"
 
-/opt/idea/bin/idea.sh
+/opt/AppRunPath
 
-echo "IntelliJ_IDEA Stop, return code: ${?}"
+echo "APPName Stop, return code: ${?}"
