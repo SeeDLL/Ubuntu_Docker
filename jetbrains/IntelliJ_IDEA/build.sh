@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DirPath="./"
-SOFT_LIST=$(cat "${DirPath}VersionList.txt")
+SOFT_LIST=$(cat "VersionList.txt")
 
 # true/false|ApplicationName|dockerName|AppDirName|version|latest|runBinPath|DownURL
 
