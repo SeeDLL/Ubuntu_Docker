@@ -13,6 +13,8 @@ RUN chmod 755 /startapp.sh && \
     tar --extract --file /tmp/archfile.tar.gz --directory "/opt/AppDirName" --strip-components 1 --no-same-owner -v && \
     install_app_icon.sh https://raw.githubusercontent.com/SeeDLL/Ubuntu_Docker/main/jetbrains/AppName/icon/AppName.png ; \
     sed -i "s/APPName/$APP_NAME/g;" /startapp.sh && \
-    echo "sed 1" && \
     sed -i "s|APPName|$APP_NAME|g; s|AppRunPath|AppDirRunPath|g" /startapp.sh && \
+    sudo apt-get update && \
+    sudo apt-get install -y build-essential cmake autoconf automake sudo gdb libc6-dbg && \
+    install_app_icon.sh https://raw.githubusercontent.com/SeeDLL/Ubuntu_Docker/main/jetbrains/AppName/icon/AppName.png ; \
     rm -rf /var/lib/apt/lists/*

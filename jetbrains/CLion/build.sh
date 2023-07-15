@@ -43,7 +43,7 @@ build_docker_image() {
 
   local build_context="--pull"
 
-  if [[ $IsPush ]]; then
+  if [[ $IsPush = true ]]; then
     build_context+=" --push"
   fi
   build_context+=" -f ${docker_file_path}"
